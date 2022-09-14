@@ -44,19 +44,6 @@ class PostsController extends AbstractController
             $this->repository->findAll(),
             Response::HTTP_OK
         );
-    }
-
-    /**
-     * @Route("/installation/posts", methods={"GET"}, name="posts_install")
-     */
-    public function installation()
-    {
-        require_once '../src/art.php';
-        $request = 'https://jsonplaceholder.typicode.com/posts';
-        $request_json = file_get_contents("$request");
-        $data = json_decode($request_json, true);
-        $post = $this->repository->installation($data);
-        return new JsonResponse("Posts loaded $post", Response::HTTP_CREATED);
-    }
+    } 
 
 }

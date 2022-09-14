@@ -56,4 +56,21 @@ class IndexController extends AbstractController
 
         return $response->setContent($txt);
     }
+
+    /**
+     * @Route("/installation", methods={"GET"}, name="installation")
+     */
+    public function installation()
+    {
+        $conn = ["posts", "comments"];
+        $request = 'https://jsonplaceholder.typicode.com/';
+        foreach ($conn as $key => $value) {
+            $request_json = file_get_contents($request.$value);
+            $data = json_decode($request_json, true);
+            $rep = $value."Repository"; 
+            $num[] = $this->$rep->installation($data);
+        }
+
+        return new Response("Loaded ".$num[0]." records and ".$num[1]." comments");
+    }
 }

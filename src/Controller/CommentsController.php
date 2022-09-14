@@ -47,17 +47,5 @@ class CommentsController extends AbstractController
             Response::HTTP_OK
         );
     }
-    
-    /**
-     * @Route("/installation/comments", methods={"GET"}, name="comments_install")
-     */
-    public function installation()
-    {
-        $request = 'https://jsonplaceholder.typicode.com/comments';
-        $request_json = file_get_contents("$request");
-        $data = json_decode($request_json, true);
-        $coments = $this->repository->installation($data);
-        return new JsonResponse("Comments loaded $coments", Response::HTTP_CREATED);
-    }
 
 }

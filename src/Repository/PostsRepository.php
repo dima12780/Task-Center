@@ -38,6 +38,7 @@ class PostsRepository extends ServiceEntityRepository
             ->findBy(array_merge(
                 $options
         ));
+        $response = [];
         foreach($entity as $vaule)
         {
             $response[] =  get_object_vars($vaule);
