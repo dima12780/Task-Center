@@ -12,9 +12,8 @@
 
 Требуется выполнение данного задания на Symfony.
 
-Пути для загрузки в бд:
-https://127.0.0.1:8000/installation/posts
-https://127.0.0.1:8000/installation/comments
+Путь для загрузки в бд:
+https://127.0.0.1:8000/installation
 
 Путь для проверки HTML-формы запросов:
 https://127.0.0.1:8000/index
